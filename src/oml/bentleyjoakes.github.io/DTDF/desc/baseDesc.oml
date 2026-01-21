@@ -1,0 +1,31 @@
+description <https://bentleyjoakes.github.io/DTDF/desc/baseDesc#> as baseDesc {
+	
+	uses <https://bentleyjoakes.github.io/DTDF/vocab/base#> as base
+	uses <https://bentleyjoakes.github.io/DTDF/vocab/DTDFVocab#> as DTDFVocab
+	
+	// IMPLEMENTATION STAGES
+	instance planned : DTDFVocab:Implementation [
+		base:desc "Planned"
+	]
+	instance active : DTDFVocab:Implementation [
+		base:desc "Actively developed"
+	]
+	instance implemented : DTDFVocab:Implementation [
+		base:desc "Already implemented"
+	]
+	
+	// TIME SCALES
+	instance slower_trt : DTDFVocab:TimeScale [
+		base:desc "Slower than real-time"
+	]
+	instance rt : DTDFVocab:TimeScale [
+		base:desc "Real-time"
+	]
+	instance faster_trt : DTDFVocab:TimeScale [
+		base:desc "Faster than real-time"
+	]
+	
+	// LIFE-CYCLE STAGES
+	instance operation : DTDFVocab:LifeCycleStage
+	
+}

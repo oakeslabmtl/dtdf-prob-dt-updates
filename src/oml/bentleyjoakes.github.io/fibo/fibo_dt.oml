@@ -1,0 +1,108 @@
+description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
+
+	uses <https://bentleyjoakes.github.io/DTDF/vocab/DTDFVocab#> as DTDFVocab
+	
+	extends <https://bentleyjoakes.github.io/DTDF/desc/baseDesc#> as baseDesc
+	extends <https://bentleyjoakes.github.io/fibo/fibo_pt#> as pt
+	
+	instance IncubatorDT : DTDFVocab:DigitalTwin [
+		DTDFVocab:purpose "enhance the functionality of the PT through the DT services"
+		DTDFVocab:multiplicity 1
+	]
+	
+	// SERVICES
+	
+	instance VirtualMoistureDetector : DTDFVocab:Service [
+		DTDFVocab:provides Alerts
+		DTDFVocab:atStage baseDesc:operation
+		DTDFVocab:hasImplementation baseDesc:active
+	]
+	instance EmptyHoppersDetector : DTDFVocab:Service [
+		DTDFVocab:provides EmptyHoppersAlert
+		DTDFVocab:atStage baseDesc:operation
+		DTDFVocab:hasImplementation baseDesc:planned
+	]
+	instance CementStuckDetector : DTDFVocab:Service [
+		DTDFVocab:provides Alerts
+		DTDFVocab:atStage baseDesc:operation
+		DTDFVocab:hasImplementation baseDesc:planned
+	]
+	instance RealtimeVisualization : DTDFVocab:Service [
+		DTDFVocab:provides SystemMonitoring, PartsVisualization, ViolizationLocalization
+		DTDFVocab:atStage baseDesc:operation
+	]
+	instance UpdateScheduler : DTDFVocab:Service [
+		DTDFVocab:provides SystemUpdate
+		DTDFVocab:atStage baseDesc:operation
+	]
+	instance STLRuntimeMonitor : DTDFVocab:Service [
+		DTDFVocab:provides Alerts, SystemMonitoring
+		DTDFVocab:atStage baseDesc:operation
+	]
+	instance DataProcessing : DTDFVocab:Service [
+//		DTDFVocab:provides
+	]
+
+	// ENABLERS
+	instance Grafana : DTDFVocab:Enabler [
+		DTDFVocab:enables RealtimeVisualization
+		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+	instance ML_ModelUpdates : DTDFVocab:Enabler [
+		DTDFVocab:enables VirtualMoistureDetector
+		DTDFVocab:hasImplementation baseDesc:planned
+	]
+	instance NextSystemUpdate : DTDFVocab:Enabler [
+		DTDFVocab:enables UpdateScheduler
+		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+	instance EMQX : DTDFVocab:Enabler [
+		DTDFVocab:enables CementStuckDetector, EmptyHoppersDetector, VirtualMoistureDetector, STLRuntimeMonitor, RealtimeVisualization, DataProcessing
+	]
+	instance VictoriaMetrics : DTDFVocab:Enabler [
+		DTDFVocab:enables RealtimeVisualization
+	]
+	
+	
+	// MODELS / DATA
+	instance PT_Data : DTDFVocab:Data [
+		DTDFVocab:inputTo EMQX, NextSystemUpdate
+		DTDFVocab:fromData pt:MotorData, pt:WeightData, pt:EventData
+		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+	instance HistoricalData : DTDFVocab:Data [
+		DTDFVocab:inputTo ML_ModelUpdates, VictoriaMetrics
+		DTDFVocab:fromData pt:MotorData, pt:WeightData, pt:EventData
+		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+	instance SemiMarkovModel : DTDFVocab:Model [
+		DTDFVocab:inputTo NextSystemUpdate
+		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+
+	// INSIGHTS/ACTIONS
+	instance SystemMonitoring : DTDFVocab:Insight [
+		DTDFVocab:hasTimeScale baseDesc:rt
+		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+	instance EmptyHoppersAlert : DTDFVocab:Insight [
+		DTDFVocab:hasTimeScale baseDesc:rt
+		DTDFVocab:hasImplementation baseDesc:planned
+	]
+	instance Alerts : DTDFVocab:Insight [
+		DTDFVocab:hasTimeScale baseDesc:rt
+		DTDFVocab:hasImplementation baseDesc:planned
+	]
+	instance ViolizationLocalization : DTDFVocab:Insight [
+		DTDFVocab:hasTimeScale baseDesc:rt
+		DTDFVocab:hasImplementation baseDesc:planned
+	]
+	instance PartsVisualization	 : DTDFVocab:Insight [
+		DTDFVocab:hasTimeScale baseDesc:rt
+		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+	instance SystemUpdate : DTDFVocab:Action [
+		DTDFVocab:hasTimeScale baseDesc:rt
+		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+}

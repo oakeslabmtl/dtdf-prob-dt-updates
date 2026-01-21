@@ -1,0 +1,7 @@
+description bundle <https://bentleyjoakes.github.io/bundles/descBundle#> as descBundle {
+	
+	includes <https://bentleyjoakes.github.io/fibo/fibo_dt#>
+	includes <https://bentleyjoakes.github.io/fibo/fibo_pt#>
+	
+	uses <https://bentleyjoakes.github.io/bundles/vocabBundle#>
+}
