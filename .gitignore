@@ -1,7 +1,5 @@
 /.gradle/
 /build/
-<<<<<<< HEAD
 .fuseki/
 .metadata/
-=======
->>>>>>> 18efeae (Reporting website)
+/website/public/

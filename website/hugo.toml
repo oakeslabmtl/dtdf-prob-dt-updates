@@ -1,9 +1,9 @@
-baseurl = "https://www.example.com/"
-title = "Black & Light"
-author = "David Hamp-Gonsalves"
+baseurl = "https://oakeslabmtl.github.io/dtdf-prob-dt-updates/"
+title = "Digital Twin Reporting Summary"
+author = "Kérian Fiter"
 canonifyurls = true
 languagecode = "en"
-theme = "black-and-light"
+theme = "my-theme"
 
 pygmentsstyle       = "bw"
 pygmentscodefences  = true

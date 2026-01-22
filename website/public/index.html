@@ -1,9 +1,7 @@
-<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><script src="http://localhost:1313/js/main.js"></script>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.140.1">
+	<meta name="generator" content="Hugo 0.140.1"><script src="/dtdf-prob-dt-updates/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=dtdf-prob-dt-updates/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -11,455 +9,218 @@
     <meta name="referrer" content="no-referrer">
     <meta name="description" content="">
 
+    <script src="http://localhost:1313/dtdf-prob-dt-updates/coi-serviceworker.min.js"></script>
+
     
 
     <title>
       
       
-         Black &amp; Light 
+         Digital Twin Reporting Summary 
       
     </title>
-    <link rel="canonical" href="http://localhost:1313/">
+    <link rel="canonical" href="http://localhost:1313/dtdf-prob-dt-updates/">
 
     <style>
   * {
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
     margin: 0;
     padding: 0;
-    color: black;
-    text-decoration-skip: ink;
+    border: 0;
+    box-sizing: border-box;
+    color: var(--text-primary);
+    text-decoration-skip-ink: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
+   
+  :root {
+     
+    --text-primary: #333333;
+    --text-secondary: #5c5c5c;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9f9f9;
+    --accent: #4361ee;
+    --code-bg: #f7f7f7;
+    --border: #e0e0e0;
+    
+     
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    
+     
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+    
+     
+    --max-width: 80%;  
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-primary: #efefef;
+      --text-secondary: #b0b0b0; 
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+      --accent: #738cff;
+      --code-bg: #2a2a2a;
+      --border: #383838;
+    }
+  }
+
+   
   body {
-    font-family: 'Roboto', 'Myriad Pro', Myriad, sans-serif;
-    font-size: 17px;
-    line-height: 160%;
-    color: #1d1313;
-    max-width: 90%;
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.7;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    max-width: var(--max-width);
     margin: 0 auto;
+    padding: 0 var(--space-md);
   }
 
-  p {
-    margin: 20px 0;
+   
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
   }
 
-  a img {
-    border: none;
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+
+   
+  p { margin: var(--space-md) 0; }
+  
+  strong { font-weight: 600; }
+  
+  em, dfn, q { font-style: italic; }
+  
+  del, s { text-decoration: line-through; }
+
+   
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
   }
 
-  img {
-    margin: 10px auto 10px auto;
-    max-width: 100%;
-    display: block;
+  a:hover {
+    border-bottom-color: var(--accent);
   }
 
-  .left-justify {
-    float: left;
+  h1 a, h2 a, h3 a {
+    text-decoration: none;
+    border-bottom: none;
   }
 
-  .right-justify {
-    float: right;
-  }
-
-  pre,
-  code {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    background-color: #f7f7f7;
-  }
-
-  code {
-    font-size: 12px;
-    padding: 4px;
-  }
-
-  pre {
-    margin-top: 0;
-    margin-bottom: 16px;
-    word-wrap: normal;
-    padding: 16px;
-    overflow: auto;
-    font-size: 85%;
-    line-height: 1.45;
-  }
-
-  pre>code {
-    padding: 0;
-    margin: 0;
-    font-size: 100%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0;
-  }
-
-  pre code {
-    display: inline;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: transparent;
-    border: 0;
-  }
-
-  pre code::before,
-  pre code::after {
-    content: normal;
-  }
-
-  em,
-  q,
-  em,
-  dfn {
-    font-style: italic;
-  }
-
-  .sans,
-  html .gist .gist-file .gist-meta {
-    font-family: "Open Sans", "Myriad Pro", Myriad, sans-serif;
-  }
-
-  .mono,
-  pre,
-  code,
-  tt,
-  p code,
-  li code {
-    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
-  }
-
-  .heading,
-  .serif,
-  h1,
-  h2,
-  h3 {
-    font-family: "Old Standard TT", serif;
-  }
-
-  strong {
-    font-weight: 600;
-  }
-
-  q:before {
-    content: "\201C";
-  }
-
-  q:after {
-    content: "\201D";
-  }
-
-  del,
-  s {
-    text-decoration: line-through;
-  }
-
-  blockquote {
-    font-family: "Old Standard TT", serif;
-    text-align: center;
-    padding: 50px;
-  }
-
-  blockquote p {
-    display: inline-block;
-    font-style: italic;
-  }
-
-  blockquote:before,
-  blockquote:after {
-    font-family: "Old Standard TT", serif;
-    content: '\201C';
-    font-size: 35px;
-    color: #403c3b;
-  }
-
-  blockquote:after {
-    content: '\201D';
-  }
-
+   
+   
   hr {
-    width: 40%;
     height: 1px;
-    background: #403c3b;
-    margin: 25px auto;
+    background: var(--border);
+    width: 40%;
+    margin: var(--space-lg) auto;
   }
 
-  h1 {
-    font-size: 35px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  h3 {
-    font-size: 22px;
-    margin-top: 18px;
-  }
-
-  h1 a,
-  h2 a,
-  h3 a {
-    text-decoration: none;
-  }
-
-  h1,
-  h2 {
-    margin-top: 28px;
-  }
-
-  #sub-header,
-  .date {
-    color: #403c3b;
-    font-size: 13px;
-  }
-
-  #sub-header {
-    margin: 0 4px;
-  }
-
-  #nav h1 a {
-    font-size: 35px;
-    color: #1d1313;
-    line-height: 120%;
-  }
-
-  .posts_listing a,
-  #nav a {
-    text-decoration: none;
-  }
-
-  li {
-    margin-left: 20px;
-  }
-
-  ul li {
-    margin-left: 5px;
+   
+  ul, ol {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
   }
 
   ul li {
     list-style-type: none;
+    position: relative;
   }
 
-  ul li:before {
-    content: "\00BB \0020";
+  ul li::before {
+    content: "•";
+    color: var(--accent);
+    position: absolute;
+    left: -1.2em;
   }
 
-  #nav ul li:before,
-  .posts_listing li:before {
-    content: '';
-    margin-right: 0;
-  }
-
-  #content {
-    text-align: left;
-    width: 100%;
-    font-size: 15px;
-    padding: 60px 0 80px;
-  }
-
-  #content h1,
-  #content h2 {
-    margin-bottom: 5px;
-  }
-
-  #content h2 {
-    font-size: 25px;
-  }
-
-  #content .entry-content {
-    margin-top: 15px;
-  }
-
-  #content .date {
-    margin-left: 3px;
-  }
-
-  #content h1 {
-    font-size: 30px;
-  }
-
-  .highlight {
-    margin: 10px 0;
-  }
-
-  .posts_listing {
-    margin: 0 0 50px;
-  }
-
-  .posts_listing li {
-    margin: 0 0 25px 15px;
-  }
-
-  .posts_listing li a:hover,
-  #nav a:hover {
-    text-decoration: underline;
-  }
-
+   
   #nav {
+    margin-top: var(--space-xl);
     text-align: center;
-    position: static;
-    margin-top: 60px;
+  }
+
+  #nav h1 a {
+    font-size: 2.2rem;
+    color: var(--text-primary);
   }
 
   #nav ul {
-    display: table;
-    margin: 8px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin: var(--space-sm) auto;
+    padding: 0;
   }
 
   #nav li {
     list-style-type: none;
-    display: table-cell;
-    font-size: 15px;
-    padding: 0 20px;
+    font-size: 1rem;
   }
 
-  #links {
-    display: flex;
-    justify-content: space-between;
-    margin: 50px 0 0 0;
+  #nav li::before { content: none; }
+
+   
+  #content {
+    padding: var(--space-xl) 0;
+    font-size: 1.1rem;
   }
 
-  #links :nth-child(1) {
-    margin-right: 0.5em;
-    ;
+  .posts_listing {
+    margin-bottom: var(--space-xl);
   }
 
-  #links :nth-child(2) {
-    margin-left: 0.5em;
-    ;
+  .posts_listing li {
+    margin-bottom: var(--space-md);
   }
 
-  #not-found {
-    text-align: center;
+  .date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
   }
 
-  #not-found a {
-    font-family: "Old Standard TT", serif;
-    font-size: 200px;
-    text-decoration: none;
-    display: inline-block;
-    padding-top: 225px;
+   
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--space-md) auto;
+    border-radius: 4px;
   }
 
-  @media (max-width: 750px) {
-    body {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    #nav h1 a {
-      font-size: 28px;
-    }
-
-    #nav li {
-      font-size: 13px;
-      padding: 0 15px;
-    }
-
-    #content {
-      margin-top: 0;
-      padding-top: 50px;
-      font-size: 14px;
-    }
-
-    #content h1 {
-      font-size: 25px;
-    }
-
-    #content h2 {
-      font-size: 22px;
-    }
-
-    .posts_listing li div {
-      font-size: 12px;
-    }
-  }
-
-  @media (max-width: 400px) {
-    body {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    #nav h1 a {
-      font-size: 22px;
-    }
-
-    #nav li {
-      font-size: 12px;
-      padding: 0 10px;
-    }
-
-    #content {
-      margin-top: 0;
-      padding-top: 20px;
-      font-size: 12px;
-    }
-
-    #content h1 {
-      font-size: 20px;
-    }
-
-    #content h2 {
-      font-size: 18px;
-    }
-
-    .posts_listing li div {
-      font-size: 12px;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-
-    *,
-    #nav h1 a {
-      color: #FDFDFD;
-    }
-
-    body {
-      background: #121212;
-    }
-
-    pre,
-    code {
-      background-color: #262626;
-    }
-
-    #sub-header,
-    .date {
-      color: #BABABA;
-    }
-
-    hr {
-      background: #EBEBEB;
-    }
-  }
+  .left-justify { float: left; margin-right: var(--space-md); }
+  .right-justify { float: right; margin-left: var(--space-md); }
 
    
   .zoom-container {
     position: relative;
     overflow: visible;
-     
     width: 100%;
-     
-    max-width: 100vw;
-     
-    margin: 0;
-     
     cursor: zoom-in;
   }
 
   .zoomable-image {
     width: 100%;
-    display: block;
-    transition: transform 0.1s ease-out;
+    transition: transform 0.2s ease;
   }
 
-   
   .modal {
     display: none;
     position: fixed;
@@ -468,7 +229,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     justify-content: center;
     align-items: center;
   }
@@ -476,7 +237,7 @@
   .modal-content {
     max-width: 90%;
     max-height: 90%;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease;
   }
 
   .close {
@@ -484,67 +245,295 @@
     top: 20px;
     right: 35px;
     color: #fff;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 2rem;
     cursor: pointer;
   }
 
+   
+  pre, code {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    background-color: var(--code-bg);
+    border-radius: 3px;
+  }
+
+  code {
+    padding: 0.15em 0.3em;
+  }
+
+  pre {
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    overflow: auto;
+    line-height: 1.45;
+  }
+
+  pre code {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    white-space: pre;
+  }
+
+   
+  blockquote {
+    font-family: var(--font-serif);
+    border-left: 3px solid var(--accent);
+    padding: var(--space-md) var(--space-lg);
+    margin: var(--space-md) 0;
+    background-color: var(--bg-secondary);
+    border-radius: 0 4px 4px 0;
+  }
+
+  blockquote p {
+    font-style: italic;
+  }
+
+   
   .table-responsive {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;  
+    margin: var(--space-md) 0;
+    -webkit-overflow-scrolling: touch;
   }
 
   table {
-    border-collapse: collapse;
     width: 100%;
-    border: 1px solid black;
-    table-layout: auto;
-    empty-cells: show;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
   }
 
-  th,
-  td {
-    border: 1px solid black;
-    padding: 8px;
+  th, td {
+    padding: var(--space-sm);
+    border: 1px solid var(--border);
     text-align: left;
-    empty-cells: show;
   }
 
-  table td:first-child,
-  table th:first-child {
-    width: 5%;
+  th {
+    background-color: var(--bg-secondary);
+    font-weight: 600;
   }
 
-  table td:nth-child(2),
-  table th:nth-child(2) {
-    width: 20%;
+   
+   
+  @media (max-width: 768px) {
+    :root {
+      --max-width: 95%;
+    }
+    
+    body {
+      font-size: 17px;
+    }
+
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+
+    #content {
+      padding-top: var(--space-lg);
+    }
   }
 
-  table td:nth-child(3),
-  table th:nth-child(3) {
-    width: auto;
+   
+  @media (max-width: 480px) {
+    body {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+
+    #nav h1 a {
+      font-size: 1.8rem;
+    }
+
+    #nav ul {
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .posts_listing li div {
+      font-size: 0.9rem;
+    }
+    
+    blockquote {
+      padding: var(--space-sm) var(--space-md);
+    }
   }
 </style>
+    <script src="http://localhost:1313/dtdf-prob-dt-updates/js/main.js"></script>
 
-    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Black & Light" />
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/dtdf-prob-dt-updates/index.xml" title="Digital Twin Reporting Summary" />
     </head>
 
   <body>
     <section id=nav>
-      <h1><a class="h-card" href="http://localhost:1313/">Digital Twin Reporting Summary</a></h1>
+      <h1><a class="h-card" href="http://localhost:1313/dtdf-prob-dt-updates/">Digital Twin Reporting Summary</a></h1>
       <ul>
         
       </ul>
     </section>
 
 
-<h2>Constellation Architecture</h2>
+<h2>DT Interactive Constellation</h2>
+
+<br>
+
+<script>
+    
+    window.dataReady = null;
+    
+    async function fetchData() {
+        try {
+            const res = await fetch('http:\/\/localhost:1313\/dtdf-prob-dt-updates\/data_dump.yaml');
+            const text = await res.text();
+            console.log('✅ YAML data fetched and ready');
+            window.dataReady = text; 
+        } catch (error) {
+            console.error('❌ Error fetching data:', error);
+        }
+    }
+    
+    fetchData();
+</script>
+
+<div style="width: 100%; aspect-ratio: 16 / 9;">
+    <iframe 
+        id="godot-iframe"
+        src="http://localhost:1313/dtdf-prob-dt-updates/DTInsight_web_export/DTInsight.html" 
+        style="width: 100%; height: 100%; border:none;">
+    </iframe>
+</div>
+
+<h2>DT Characteristics Table</h2>
+
+<br>
+
+<section id="table-responsive">
+      <table>
+        <tr>
+            <th></th>
+            <th>Characteristics</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>1</sub></td>
+            <td>System under study</td>
+            <td>A Styrofoam box containing a lid, a heating element, and fan, controlled by a Raspberry Pi, for incubating tempeh.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>2</sub></td>
+            <td>Physical acting components</td>
+            <td>fan: Circulates air throughout box<br>heater: Raises the temperature of surrounding air<br>controller: Controls the fan and heater<br>power_supply: Powers electrical components</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>3</sub></td>
+            <td>Physical sensing components</td>
+            <td>temp_sensor_1<br>temp_sensor_2<br>temp_sensor_3</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>4</sub></td>
+            <td>Physical-to-virtual interaction</td>
+            <td>temp_readings_trans<br>controller_state_trans</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>5</sub></td>
+            <td>Virtual-to-physical interaction</td>
+            <td>The controller in the PT sends sensor and actuator data on a periodic basis over RabbitMQ.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>6</sub></td>
+            <td>DT services</td>
+            <td>safe_adaptation<br>anomaly_detector<br>real_time_viz_service<br>policy_optimization<br>heater_state_estimation_service<br>what_if_sim</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>7</sub></td>
+            <td>Twinning time-scale</td>
+            <td>Slower than real-time<br>Real-time<br>The DT-to-PT synchronization occurs every time the PT sends a message to the DT (on a periodic basis).<br>Faster than real-time</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>8</sub></td>
+            <td>Multiplicities</td>
+            <td>The current implementation has no multiplicities, however, it is possible to deploy multiple DTs for the same PT.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>9</sub></td>
+            <td>Life-cycle stages</td>
+            <td>The DT supports the design and the service phases. In the service phase, it supports creating, executing, saving, analyzing, evolving, and terminating.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>10</sub></td>
+            <td>DT models and data</td>
+            <td>Model:<br>four_para_model<br>pt_model<br>ANN_state_estimation_model<br>ANN_model<br>two_para_model<br>controller_model<br>env_model<br>pt_and_env_model<br><br>Data:<br>temp_readings_streaming<br>temp_readings_historical<br>controller_state</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>11</sub></td>
+            <td>Tooling and enablers</td>
+            <td>simulator<br>state_estimator<br>anomaly_detector_enabler<br>optimization_algs<br>dashboard_enabler<br>godot<br>docker<br>influx_db<br>rabbit_mq</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>12</sub></td>
+            <td>DT constellation</td>
+            <td>The orchestration of the system-as-a-whole is carried out by micro-services. These microservices set up the multiple components from configuration files, including the models and data, tools and enablers, services, and physical-to-virtual and virtual-to-physical interaction. It is possible to leave aside some of the micro-services when initializing the DT for testing purposes..</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>13</sub></td>
+            <td>Twinning process and DT evolution</td>
+            <td>The PT-to-DT connection is done over Wi-Fi on a laptop using RabbitMQ.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>14</sub></td>
+            <td>Fidelity and validity considerations</td>
+            <td>The models have been calibrated against experimental data and the predictive accuracy of the best model is within 2°C. The models have been validated in a controlled environment.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>15</sub></td>
+            <td>DT technical connection</td>
+            <td>The PT-to-DT connection is done over Wi-Fi on a laptop using RabbitMQ.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>16</sub></td>
+            <td>DT hosting/deployment</td>
+            <td>The Incubator DT is deployed locally on a LAN.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>17</sub></td>
+            <td>Insights and decision making</td>
+            <td>dashboard_viz<br>anomaly_warning: anomaly detection<br>real_time_viz: 3D visualization of the current state<br>dashboard: dashboard visualization of the current state and historical data<br>heater_state_estimation: state estimation of the heater<br>what_if_sim_results:  what-if analysis for future behavior under different controller configurations<br>controller_control: control policy updates to the PT<br>commands</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>18</sub></td>
+            <td>Horizontal integration</td>
+            <td>There is horizontal integration with the micro-services of the Incubator DT. The DT is able to exchange information with other information systems over RabbitMQ.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>19</sub></td>
+            <td>Data ownership and privacy</td>
+            <td>Datasets have been provided online to the public. No privacy-related data are stored.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>20</sub></td>
+            <td>Standardization</td>
+            <td>Communication is carried out using AMQP standard via RabbitMQ. Behavioral models have been produced following the FMI standard version 2.</td>
+        </tr>
+        <tr>
+            <td class="characteristic-id">C<sub>21</sub></td>
+            <td>Security and safety considerations</td>
+            <td>Communication can be TLS encrypted through the RabbitMQ broker. The physical controller counts with a safety consideration that turns off system if the temperature read is above 60°C or if the network connection is unstable.</td>
+        </tr>
+    </table>
+</section>
+
+<h2>DT Constellation Screenshot</h2>
 
 <br>
 
 <section id="architecture">
   <div class="zoom-container">
-    <img src="architecture.png" alt="Architecture Diagram" class="zoomable-image">
+    <img src="http://localhost:1313/dtdf-prob-dt-updates/images/architecture.png" alt="Architecture Diagram" class="zoomable-image">
   </div>
 </section>
 
@@ -554,219 +543,11 @@
   <img class="modal-content" id="modal-image">
 </div>
 
-<h2>Characteristics</h2>
-
-<br>
-
-<section id="table-responsive">
-  <table>
-    <tr>
-      <th></th>
-      <th>Characteristics</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td>C<sub>1</sub></td>
-      <td>System under study</td>
-<<<<<<< HEAD
-      <td>A Styrofoam box containing a lid, a heating element, and fan, controlled by a Raspberry Pi, for incubating tempeh.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>2</sub></td>
-      <td>Physical acting components</td>
-<<<<<<< HEAD
-      <td>Heating element and fan.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>3</sub></td>
-      <td>Physical sensing components</td>
-<<<<<<< HEAD
-      <td>3 temperature sensors (2 inside and 1 outside).</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>4</sub></td>
-      <td>Physical-to-virtual interaction</td>
-<<<<<<< HEAD
-      <td>The controller in the PT sends sensor and actuator data on a periodic basis over RabbitMQ</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>5</sub></td>
-      <td>Virtual-to-physical interaction</td>
-<<<<<<< HEAD
-      <td>The DT sends new parameters of the controller, or desired temperature, to the controller in the PT.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>6</sub></td>
-      <td>DT services</td>
-<<<<<<< HEAD
-      <td>Heater state estimation, real-time (and historical) visualization, anomaly detection, what-if simulations, reconfiguration according to state of the lid, controller parameters optimization.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>7</sub></td>
-      <td>Twinning time-scale</td>
-<<<<<<< HEAD
-      <td>The DT-to-PT synchronization occurs every time the PT sends a message to the DT (on a periodic basis).</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>8</sub></td>
-      <td>Multiplicities</td>
-<<<<<<< HEAD
-      <td>The current implementation has no multiplicities, however, it is possible to deploy multiple DTs for the same PT as proposed in 31.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>9</sub></td>
-      <td>Life-cycle stages</td>
-<<<<<<< HEAD
-      <td>The DT supports the design and the service phases. In the service phase, it supports creating, executing, saving, analyzing, evolving, and terminating.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>10</sub></td>
-      <td>DT models and data</td>
-<<<<<<< HEAD
-      <td>There are plant models (2-parameter and 4-parameter ordinary different equations, and artificial neural network models for plant and state estimator), controller models (state machine), environment models (room temperature prediction), CAD models for 3D visualization, and various couplings between the plant, controller, and environment, models. The data of interest are related to temperature, actuation (on/off state of the actuators), and state of the controller.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>11</sub></td>
-      <td>Tooling and enablers</td>
-<<<<<<< HEAD
-      <td>RabbitMQ for communication, InfluxDB for storing timeseries data, Docker for containerization, HOCON for storing configuration files, Godot for 3D visualization, and various Python libraries (e.g., python-control, SciPy).</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>12</sub></td>
-      <td>DT constellation</td>
-<<<<<<< HEAD
-      <td>The orchestration of the system-as-a-whole is carried out by micro-services. These microservices set up the multiple components from configuration files, including the models and data, tools and enablers, services, and physical-to-virtual and virtual-to-physical interaction. It is possible to leave aside some of the micro-services when initializing the DT for testing purposes.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>13</sub></td>
-      <td>Twinning process and DT evolution</td>
-<<<<<<< HEAD
-      <td>The DT was engineered based on a joint engineering approach. For the evolution, 10 milestones have been defined: identifying the physics for the PT, building the plant models with, characterizing the heating power, building the first physical prototype, experimentally refining the parameters for the plant model, creating the controller model, the deploying the controller code into the physical controller, deploying the visualization service, providing services for state estimation and anomaly detection, and providing the service for optimizing the control policy.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>14</sub></td>
-      <td>Fidelity and validity considerations</td>
-<<<<<<< HEAD
-      <td>The models have been calibrated against experimental data and the predictive accuracy of the best model is within 2°C. The models have been validated in a controlled environment.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>15</sub></td>
-      <td>DT technical connection</td>
-<<<<<<< HEAD
-      <td>The PT-to-DT connection is done over Wi-Fi on a laptop using RabbitMQ.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>16</sub></td>
-      <td>DT hosting/deployment</td>
-<<<<<<< HEAD
-      <td>The Incubator DT is deployed locally on a LAN.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>17</sub></td>
-      <td>Insights and decision making</td>
-<<<<<<< HEAD
-      <td>The DT can provide visualization of the current state and historical data, what-if analysis for future behavior under different controller configurations, and control policy updates to the PT.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>18</sub></td>
-      <td>Horizontal integration</td>
-<<<<<<< HEAD
-      <td>There is horizontal integration with the micro-services of the Incubator DT. The DT is able to exchange information with other information systems over RabbitMQ.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>19</sub></td>
-      <td>Data ownership and privacy</td>
-<<<<<<< HEAD
-      <td>Datasets have been provided online to the public. No privacy-related data are stored.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>20</sub></td>
-      <td>Standardization</td>
-<<<<<<< HEAD
-      <td>Communication is carried out using AMQP standard via RabbitMQ. Behavioral models have been produced following the FMI standard version 2.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-    <tr>
-      <td>C<sub>21</sub></td>
-      <td>Security and safety considerations</td>
-<<<<<<< HEAD
-      <td>Communication is carried out using AMQP standard via RabbitMQ. Behavioral models have been produced following the FMI standard version 2.</td>
-=======
-      <td></td>
->>>>>>> 18efeae (Reporting website)
-    </tr>
-  </table>
-</section>
-
-<h2>DT Live Embed</h2>
-
-<p>Coming soon...</p>
-
 <section id="content">
   <ul class="posts_listing">
     
   </ul>
 </section>
-
 
 </body>
 </html>
