@@ -36,12 +36,17 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 		DTDFVocab:provides SystemUpdate
 		DTDFVocab:atStage baseDesc:operation
 	]
-	instance STLRuntimeMonitor : DTDFVocab:Service [
+	instance RuntimeMonitor : DTDFVocab:Service [
 		DTDFVocab:provides Alerts, SystemMonitoring
 		DTDFVocab:atStage baseDesc:operation
 	]
 	instance DataProcessing : DTDFVocab:Service [
 //		DTDFVocab:provides
+	]
+	instance UpdatePlanningSimulation : DTDFVocab:Service [
+		DTDFVocab:provides Alerts, SystemMonitoring
+		DTDFVocab:atStage baseDesc:operation
+		DTDFVocab:hasTimeScale baseDesc:faster_trt
 	]
 
 	// ENABLERS
@@ -58,7 +63,13 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 		DTDFVocab:hasImplementation baseDesc:implemented
 	]
 	instance EMQX : DTDFVocab:Enabler [
-		DTDFVocab:enables CementStuckDetector, EmptyHoppersDetector, VirtualMoistureDetector, STLRuntimeMonitor, RealtimeVisualization, DataProcessing
+//		DTDFVocab:enables CementStuckDetector, EmptyHoppersDetector, VirtualMoistureDetector, RuntimeMonitor, RealtimeVisualization, DataProcessing
+	]
+	instance Kubernetes : DTDFVocab:Enabler [
+//		DTDFVocab:enables 
+	]
+	instance CICDPipelines : DTDFVocab:Enabler [
+//		DTDFVocab:enables 
 	]
 	instance VictoriaMetrics : DTDFVocab:Enabler [
 		DTDFVocab:enables RealtimeVisualization
@@ -66,17 +77,17 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 	
 	
 	// MODELS / DATA
-	instance PT_Data : DTDFVocab:Data [
+	instance PTTelemetry : DTDFVocab:Data [
 		DTDFVocab:inputTo EMQX, NextSystemUpdate
 		DTDFVocab:fromData pt:MixingData, pt:EventData
 		DTDFVocab:hasImplementation baseDesc:implemented
 	]
-	instance HistoricalData : DTDFVocab:Data [
+	instance HistoricalProductionLogs : DTDFVocab:Data [
 		DTDFVocab:inputTo ML_ModelUpdates, VictoriaMetrics
 		DTDFVocab:fromData pt:MixingData, pt:EventData
 		DTDFVocab:hasImplementation baseDesc:implemented
 	]
-	instance SemiMarkovModel : DTDFVocab:Model [
+	instance SemiMarkovProcessModel : DTDFVocab:Model [
 		DTDFVocab:inputTo NextSystemUpdate
 		DTDFVocab:hasImplementation baseDesc:implemented
 	]
