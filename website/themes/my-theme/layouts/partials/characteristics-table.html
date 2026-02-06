@@ -7,7 +7,7 @@
         <tr>
             <td class="characteristic-id">C<sub>1</sub></td>
             <td>System under study</td>
-            <td>No data available</td>
+            <td>Concrete Batch Plant (CBP), fibo Collect self-service concrete mixing system.</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>2</sub></td>
@@ -17,96 +17,96 @@
         <tr>
             <td class="characteristic-id">C<sub>3</sub></td>
             <td>Physical sensing components</td>
-            <td>WeightSensor<br>MotorLoadSensor</td>
+            <td>MotorLoadSensor<br>WeightSensor</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>4</sub></td>
             <td>Physical-to-virtual interaction</td>
-            <td>MotorData<br>WeightData<br>EventData</td>
+            <td>EventData<br>MotorData<br>WeightData</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>5</sub></td>
             <td>Virtual-to-physical interaction</td>
-            <td>No data available</td>
+            <td>Update scheduling decisions and alerts that influence PT operations.</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>6</sub></td>
             <td>DT services</td>
-            <td>UpdateScheduler<br>RealtimeVisualization<br>CementStuckDetector<br>DataProcessing<br>EmptyHoppersDetector<br>STLRuntimeMonitor<br>VirtualMoistureDetector</td>
+            <td>CementStuckDetector<br>DataProcessing<br>EmptyHoppersDetector<br>RealtimeVisualization<br>STLRuntimeMonitor<br>VirtualMoistureDetector<br>UpdateScheduler</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>7</sub></td>
             <td>Twinning time-scale</td>
-            <td>Real-time<br>Faster than real-time<br>Slower than real-time</td>
+            <td>Real-time<br>Real-time monitoring; Faster than real-time simulation for update planning.<br>Faster than real-time<br>Slower than real-time</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>8</sub></td>
             <td>Multiplicities</td>
-            <td>No data available</td>
+            <td>Multiple CBPs monitored concurrently using identical DT service templates (End goal)</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>9</sub></td>
             <td>Life-cycle stages</td>
-            <td>No data available</td>
+            <td>Software is updated on an ongoing basis.</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>10</sub></td>
             <td>DT models and data</td>
-            <td>Model:<br>SemiMarkovModel<br><br>Data:<br>PT_Data<br>HistoricalData</td>
+            <td>Model:<br>SemiMarkovModel<br><br>Data:<br>HistoricalData<br>PT_Data</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>11</sub></td>
             <td>Tooling and enablers</td>
-            <td>EMQX<br>NextSystemUpdate<br>VictoriaMetrics<br>Grafana<br>ML_ModelUpdates</td>
+            <td>EMQX<br>Grafana<br>ML_ModelUpdates<br>VictoriaMetrics<br>NextSystemUpdate</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>12</sub></td>
             <td>DT constellation</td>
-            <td>No data available</td>
+            <td>(IDEA) One-to-many DT architecture with shared services and per-plant models.</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>13</sub></td>
             <td>Twinning process and DT evolution</td>
-            <td>No data available</td>
+            <td>Event-based streaming via message broker and containerized services.</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>14</sub></td>
             <td>Fidelity and validity considerations</td>
-            <td>No data available</td>
+            <td>Model accuracy depends on data quality.</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>15</sub></td>
             <td>DT technical connection</td>
-            <td>No data available</td>
+            <td>Event-based streaming via message broker and containerized services.</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>16</sub></td>
             <td>DT hosting/deployment</td>
-            <td>No data available</td>
+            <td>Cloud-hosted Kubernetes cluster with encryption between services, servers in different regions, and multiple different data-centers for high availability.</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>17</sub></td>
             <td>Insights and decision making</td>
-            <td>SystemUpdate<br>ViolizationLocalization<br>SystemMonitoring<br>PartsVisualization<br>EmptyHoppersAlert<br>Alerts</td>
+            <td>Alerts<br>EmptyHoppersAlert<br>PartsVisualization<br>SystemMonitoring<br>ViolizationLocalization<br>SystemUpdate</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>18</sub></td>
             <td>Horizontal integration</td>
-            <td>No data available</td>
+            <td>N/A</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>19</sub></td>
             <td>Data ownership and privacy</td>
-            <td>No data available</td>
+            <td>N/A</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>20</sub></td>
             <td>Standardization</td>
-            <td>No data available</td>
+            <td>N/A</td>
         </tr>
         <tr>
             <td class="characteristic-id">C<sub>21</sub></td>
             <td>Security and safety considerations</td>
-            <td>No data available</td>
+            <td>Human-in-the-loop constraints.</td>
         </tr>
     </table>
