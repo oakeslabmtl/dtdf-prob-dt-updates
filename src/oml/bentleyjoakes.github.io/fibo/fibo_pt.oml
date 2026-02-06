@@ -15,37 +15,41 @@ description <https://bentleyjoakes.github.io/fibo/fibo_pt#> as fibo_pt {
 	instance ConcreteMixer : DTDFVocab:System[
 		DTDFVocab:purpose "Mix concrete"
 		DTDFVocab:multiplicity 1
-		base:contains Motor, Hoppers, PaymentTerminal, CementSilo, ConveyorBelt
+		base:contains MixerRotor, Motor, MaterialHoppers, PaymentTerminal, CementSilo, ConveyorMechanism, WaterDosingSystem
 	]
 	
-	instance Motor : DTDFVocab:Component [
+	instance MixerRotor : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance Hoppers : DTDFVocab:Component [
+	instance Motor : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance PaymentTerminal : DTDFVocab:Component [
+	instance MaterialHoppers : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance CementSilo : DTDFVocab:Component [
+	instance PaymentTerminal : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance ConveyorBelt : DTDFVocab:Component [
+	instance CementSilo : DTDFVocab:ActingComponent [
+		base:desc ""
+	]
+	instance ConveyorMechanism : DTDFVocab:ActingComponent [
+		base:desc ""
+	]
+	instance WaterDosingSystem : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
 	
-	instance MotorLoadSensor : DTDFVocab:SensingComponent
+	instance MotorLoadSensors : DTDFVocab:SensingComponent
 	
-	instance WeightSensor : DTDFVocab:SensingComponent
+	instance WeightSensors : DTDFVocab:SensingComponent
 	
-	instance MotorData : DTDFVocab:DataTransmitted [
-		DTDFVocab:producedFrom MotorLoadSensor
-		DTDFVocab:hasTimeScale baseDesc:rt
-		DTDFVocab:IsAutomatic true
-	]
+	instance TemperatureSensors : DTDFVocab:SensingComponent
 	
-	instance WeightData : DTDFVocab:DataTransmitted [
-		DTDFVocab:producedFrom WeightSensor
+	instance HumiditySensors : DTDFVocab:SensingComponent
+	
+	instance MixingData : DTDFVocab:DataTransmitted [
+		DTDFVocab:producedFrom MotorLoadSensors, WeightSensors, TemperatureSensors, HumiditySensors
 		DTDFVocab:hasTimeScale baseDesc:rt
 		DTDFVocab:IsAutomatic true
 	]

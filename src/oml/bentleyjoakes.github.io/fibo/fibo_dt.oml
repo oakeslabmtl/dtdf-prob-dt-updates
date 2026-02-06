@@ -68,12 +68,12 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 	// MODELS / DATA
 	instance PT_Data : DTDFVocab:Data [
 		DTDFVocab:inputTo EMQX, NextSystemUpdate
-		DTDFVocab:fromData pt:MotorData, pt:WeightData, pt:EventData
+		DTDFVocab:fromData pt:MixingData, pt:EventData
 		DTDFVocab:hasImplementation baseDesc:implemented
 	]
 	instance HistoricalData : DTDFVocab:Data [
 		DTDFVocab:inputTo ML_ModelUpdates, VictoriaMetrics
-		DTDFVocab:fromData pt:MotorData, pt:WeightData, pt:EventData
+		DTDFVocab:fromData pt:MixingData, pt:EventData
 		DTDFVocab:hasImplementation baseDesc:implemented
 	]
 	instance SemiMarkovModel : DTDFVocab:Model [
