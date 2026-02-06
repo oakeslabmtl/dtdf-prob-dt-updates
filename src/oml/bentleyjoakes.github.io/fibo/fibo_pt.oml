@@ -9,6 +9,7 @@ description <https://bentleyjoakes.github.io/fibo/fibo_pt#> as fibo_pt {
 		DTDFVocab:hasSystem ConcreteMixer
 		DTDFVocab:hasAgent Actor
 		DTDFVocab:hasEnvironment Plant
+		base:desc "Concrete Batch Plant (CBP), fibo Collect self-service concrete mixing system."
 	]
 	
 	instance ConcreteMixer : DTDFVocab:System[

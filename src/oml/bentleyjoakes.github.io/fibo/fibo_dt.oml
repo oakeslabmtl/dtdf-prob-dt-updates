@@ -4,8 +4,9 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 	
 	extends <https://bentleyjoakes.github.io/DTDF/desc/baseDesc#> as baseDesc
 	extends <https://bentleyjoakes.github.io/fibo/fibo_pt#> as pt
+	uses <https://bentleyjoakes.github.io/DTDF/vocab/base#> as base
 	
-	instance IncubatorDT : DTDFVocab:DigitalTwin [
+	instance FiboDT : DTDFVocab:DigitalTwin [
 		DTDFVocab:purpose "enhance the functionality of the PT through the DT services"
 		DTDFVocab:multiplicity 1
 	]
@@ -104,5 +105,72 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 	instance SystemUpdate : DTDFVocab:Action [
 		DTDFVocab:hasTimeScale baseDesc:rt
 		DTDFVocab:hasImplementation baseDesc:implemented
+	]
+	
+	// DT CHARACTERISTICS
+	
+	// C5: Virtual to Physical Interaction
+	instance virtual_to_physical : DTDFVocab:VirtualToPhysical [
+		base:desc "Update scheduling decisions and alerts that influence PT operations."
+	]
+	
+	// C7: TimeScale
+	instance twinning_time_scale : DTDFVocab:TimeScale [
+		base:desc "Real-time monitoring; Faster than real-time simulation for update planning."
+	]
+	
+	// C8: Multiplicity
+	instance multiplcity : DTDFVocab:Multiplicity [
+		base:desc "Multiple CBPs monitored concurrently using identical DT service templates (End goal)"
+	]
+	
+	// C9: LifeCycleStage
+	instance life_cycle_stage : DTDFVocab:LifeCycleStage [
+		base:desc "Software is updated on an ongoing basis."
+	]
+	
+	// C12: Constellation
+	instance constellation : DTDFVocab:Constellation [
+		base:desc "(IDEA) One-to-many DT architecture with shared services and per-plant models."
+	]
+	
+	// C13: EvolutionStage
+	instance evol_stage : DTDFVocab:EvolutionStage [
+		base:desc "Generation of a virtual sensor occurs offline, using new data to train it. Retest model as needed."
+	]
+
+	// C14: FidelityConsideration
+	instance fidelity_consideration : DTDFVocab:FidelityConsideration [
+		base:desc "Model accuracy depends on data quality."
+	]
+	
+	// C15: TechnicalConnection
+	instance technical_connection : DTDFVocab:TechnicalConnection [
+		base:desc "Event-based streaming via message broker and containerized services."
+	]
+	
+	// C16: DT hosting/deployment
+	instance deployment : DTDFVocab:Deployment [
+		base:desc "Cloud-hosted Kubernetes cluster with encryption between services, servers in different regions, and multiple different data-centers for high availability."
+	]
+	
+	// C18: Horizontal Integration
+	instance horizontal_integration : DTDFVocab:HoriIntegration [
+		base:desc "N/A"
+	]
+	
+	// C19: Data ownership and privacy	
+	instance data_owneship_privacy : DTDFVocab:DataOwnershipPrivacy [
+		base:desc "N/A"
+	]
+	
+	// C20: Standardization
+	instance standardization : DTDFVocab:Standardization [
+		base:desc "N/A"
+	]
+	
+	// C21: Security and safety considerations	
+	instance security_safety : DTDFVocab:SecuritySafety [
+		base:desc "Human-in-the-loop constraints."
 	]
 }
