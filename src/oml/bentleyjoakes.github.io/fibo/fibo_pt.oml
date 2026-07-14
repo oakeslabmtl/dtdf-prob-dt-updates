@@ -6,70 +6,70 @@ description <https://bentleyjoakes.github.io/fibo/fibo_pt#> as fibo_pt {
 	extends <https://bentleyjoakes.github.io/DTDF/desc/baseDesc#> as baseDesc
 
 	instance pt : DTDFVocab:SystemUnderStudy [
-		DTDFVocab:hasSystem ConcreteMixer
-		DTDFVocab:hasAgent Actor
-		DTDFVocab:hasEnvironment Plant
+		DTDFVocab:hasSystem concrete_mixer
+		DTDFVocab:hasAgent actor
+		DTDFVocab:hasEnvironment plant
 		base:desc "Concrete Batch Plant (CBP), fibo Collect self-service concrete mixing system."
 	]
 	
-	instance ConcreteMixer : DTDFVocab:System[
+	instance concrete_mixer : DTDFVocab:System[
 		DTDFVocab:purpose "Mix concrete"
 		DTDFVocab:multiplicity 1
-		base:contains MixerRotor, Motor, MaterialHoppers, PaymentTerminal, CementSilo, ConveyorMechanism, WaterDosingSystem
+		base:contains mixer_rotor, motor, material_hoppers, payment_terminal, cement_silo, conveyor_mechanism, water_dosing_system
 	]
 	
-	instance MixerRotor : DTDFVocab:ActingComponent [
+	instance mixer_rotor : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance Motor : DTDFVocab:ActingComponent [
+	instance motor : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance MaterialHoppers : DTDFVocab:ActingComponent [
+	instance material_hoppers : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance PaymentTerminal : DTDFVocab:ActingComponent [
+	instance payment_terminal : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance CementSilo : DTDFVocab:ActingComponent [
+	instance cement_silo : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance ConveyorMechanism : DTDFVocab:ActingComponent [
+	instance conveyor_mechanism : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
-	instance WaterDosingSystem : DTDFVocab:ActingComponent [
+	instance water_dosing_system : DTDFVocab:ActingComponent [
 		base:desc ""
 	]
 	
-	instance MotorLoadSensors : DTDFVocab:SensingComponent
+	instance motor_load_sensors : DTDFVocab:SensingComponent
 	
-	instance WeightSensors : DTDFVocab:SensingComponent
+	instance weight_sensors : DTDFVocab:SensingComponent
 	
-	instance TemperatureSensors : DTDFVocab:SensingComponent
+	instance temperature_sensors : DTDFVocab:SensingComponent
 	
-	instance HumiditySensors : DTDFVocab:SensingComponent
+	instance humidity_sensors : DTDFVocab:SensingComponent
 	
-	instance MixingData : DTDFVocab:DataTransmitted [
-		DTDFVocab:producedFrom MotorLoadSensors, WeightSensors, TemperatureSensors, HumiditySensors
+	instance mixing_data : DTDFVocab:DataTransmitted [
+		DTDFVocab:producedFrom motor_load_sensors, weight_sensors, temperature_sensors, humidity_sensors
 		DTDFVocab:hasTimeScale baseDesc:rt
 		DTDFVocab:IsAutomatic true
 	]
 	
-	instance EventData : DTDFVocab:DataTransmitted [
+	instance event_data : DTDFVocab:DataTransmitted [
 		DTDFVocab:hasTimeScale baseDesc:rt
 		DTDFVocab:IsAutomatic true
 	]
 	
-	instance Actor : DTDFVocab:Agent [
+	instance actor : DTDFVocab:Agent [
 		base:desc ""
 	]
 	
-	instance Plant : DTDFVocab:Environment [
-		base:contains Location, Weather
+	instance plant : DTDFVocab:Environment [
+		base:contains location, weather
 	]
-	instance Location : DTDFVocab:Component [
+	instance location : DTDFVocab:Component [
 		base:desc "Where the concrete mixer is placed"
 	]
-	instance Weather : DTDFVocab:Component [
+	instance weather : DTDFVocab:Component [
 		base:desc ""
 	]
 }
