@@ -1,212 +1,212 @@
 Services :
 	runtime_monitor
-		type : Thing/DTComponent/Service/Component/FidelityThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/Service/DTComponent/NamedIndividual/ConceptInstance
 		provides : system_monitoring/alerts
 		atStage : operation
 		sameAs : runtime_monitor
 	update_planning_simulation
-		type : Thing/DTComponent/Service/Component/FidelityThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/Service/DTComponent/NamedIndividual/ConceptInstance
 		hasTimeScale : faster_trt
 		provides : system_monitoring/alerts
 		atStage : operation
 		sameAs : update_planning_simulation
 	realtime_visualization
-		type : Thing/DTComponent/Service/Component/FidelityThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/Service/DTComponent/NamedIndividual/ConceptInstance
 		enabledBy : victoria_metrics/grafana
 		provides : system_monitoring/violization_localization/parts_visualization
 		atStage : operation
 		sameAs : realtime_visualization
 	cement_stuck_detector
-		type : Thing/DTComponent/Service/Component/FidelityThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/Service/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : planned
 		provides : alerts
 		atStage : operation
 		sameAs : cement_stuck_detector
 	update_scheduler
-		type : Thing/DTComponent/Service/Component/FidelityThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/Service/DTComponent/NamedIndividual/ConceptInstance
 		enabledBy : next_system_update
 		provides : system_update
 		atStage : operation
 		sameAs : update_scheduler
 	virtual_moisture_detector
-		type : Thing/DTComponent/Service/Component/FidelityThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/Service/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : active
 		enabledBy : ml_model_updates
 		provides : alerts
 		atStage : operation
 		sameAs : virtual_moisture_detector
 	empty_hoppers_detector
-		type : Thing/DTComponent/Service/Component/FidelityThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/Service/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : planned
 		provides : empty_hoppers_alert
 		atStage : operation
 		sameAs : empty_hoppers_detector
 	data_processing
-		type : Thing/DTComponent/Service/Component/FidelityThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/Service/DTComponent/NamedIndividual/ConceptInstance
 		sameAs : data_processing
 Enablers :
 	victoria_metrics
-		type : Thing/DTComponent/Enabler/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/Enabler/ImplementationThing/Thing/ContainedElement/DescribedThing/DTComponent/NamedIndividual/ConceptInstance
 		enables : realtime_visualization
 		hasInput : historical_production_logs
 		sameAs : victoria_metrics
 	next_system_update
-		type : Thing/DTComponent/Enabler/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/Enabler/ImplementationThing/Thing/ContainedElement/DescribedThing/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : implemented
 		enables : update_scheduler
 		hasInput : pt_telemetry/semi_markov_process_model
 		sameAs : next_system_update
 	emqx
-		type : Thing/DTComponent/Enabler/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/Enabler/ImplementationThing/Thing/ContainedElement/DescribedThing/DTComponent/NamedIndividual/ConceptInstance
 		hasInput : pt_telemetry
 		sameAs : emqx
 	grafana
-		type : Thing/DTComponent/Enabler/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/Enabler/ImplementationThing/Thing/ContainedElement/DescribedThing/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : implemented
 		enables : realtime_visualization
 		sameAs : grafana
 	cicd_pipelines
-		type : Thing/DTComponent/Enabler/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/Enabler/ImplementationThing/Thing/ContainedElement/DescribedThing/DTComponent/NamedIndividual/ConceptInstance
 		sameAs : cicd_pipelines
 	ml_model_updates
-		type : Thing/DTComponent/Enabler/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/Enabler/ImplementationThing/Thing/ContainedElement/DescribedThing/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : planned
 		enables : virtual_moisture_detector
 		hasInput : historical_production_logs
 		sameAs : ml_model_updates
 	kubernetes
-		type : Thing/DTComponent/Enabler/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/FidelityThing/Enabler/ImplementationThing/Thing/ContainedElement/DescribedThing/DTComponent/NamedIndividual/ConceptInstance
 		sameAs : kubernetes
 Models :
 	semi_markov_process_model
-		type : Thing/DTComponent/Model/Input/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Input/Model/Component/FidelityThing/ImplementationThing/Thing/ContainedElement/DescribedThing/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : implemented
 		inputTo : next_system_update
 		sameAs : semi_markov_process_model
 ProvidedThings :
 	system_monitoring
-		type : ConnectionComponent/Thing/Insight/Component/ProvidedThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ProvidedThing/ConnectionComponent/ImplementationThing/Insight/Thing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
 		hasImplementation : implemented
 		hasTimeScale : rt
 		providedBy : runtime_monitor/update_planning_simulation/realtime_visualization
 		sameAs : system_monitoring
 	violization_localization
-		type : ConnectionComponent/Thing/Insight/Component/ProvidedThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ProvidedThing/ConnectionComponent/ImplementationThing/Insight/Thing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
 		hasImplementation : planned
 		hasTimeScale : rt
 		providedBy : realtime_visualization
 		sameAs : violization_localization
 	alerts
-		type : ConnectionComponent/Thing/Insight/Component/ProvidedThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ProvidedThing/ConnectionComponent/ImplementationThing/Insight/Thing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
 		hasImplementation : planned
 		hasTimeScale : rt
 		providedBy : runtime_monitor/update_planning_simulation/cement_stuck_detector/virtual_moisture_detector
 		sameAs : alerts
 	parts_visualization
-		type : ConnectionComponent/Thing/Insight/Component/ProvidedThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ProvidedThing/ConnectionComponent/ImplementationThing/Insight/Thing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
 		hasImplementation : implemented
 		hasTimeScale : rt
 		providedBy : realtime_visualization
 		sameAs : parts_visualization
 	empty_hoppers_alert
-		type : ConnectionComponent/Thing/Insight/Component/ProvidedThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ProvidedThing/ConnectionComponent/ImplementationThing/Insight/Thing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
 		hasImplementation : planned
 		hasTimeScale : rt
 		providedBy : empty_hoppers_detector
 		sameAs : empty_hoppers_alert
 	system_update
-		type : ConnectionComponent/Action/Thing/Component/ProvidedThing/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/AutomaticEnabledThing/NamedIndividual/ConceptInstance
+		type : Component/ProvidedThing/ConnectionComponent/Action/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/AutomaticEnabledThing/NamedIndividual/ConceptInstance
 		hasImplementation : implemented
 		hasTimeScale : rt
 		providedBy : update_scheduler
 		sameAs : system_update
 Data transmitted :
 	mixing_data
-		type : ConnectionComponent/Thing/DataTransmitted/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/AutomaticEnabledThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/DataTransmitted/Thing/ContainedElement/TimeScaleThing/DescribedThing/AutomaticEnabledThing/NamedIndividual/ConceptInstance
 		hasTimeScale : rt
 		producedFrom : humidity_sensors/temperature_sensors/weight_sensors/motor_load_sensors
 		asData : pt_telemetry/historical_production_logs
 		IsAutomatic : true
 		sameAs : mixing_data
 	event_data
-		type : ConnectionComponent/Thing/DataTransmitted/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/AutomaticEnabledThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/DataTransmitted/Thing/ContainedElement/TimeScaleThing/DescribedThing/AutomaticEnabledThing/NamedIndividual/ConceptInstance
 		hasTimeScale : rt
 		asData : pt_telemetry/historical_production_logs
 		IsAutomatic : true
 		sameAs : event_data
 Sensors :
 	humidity_sensors
-		type : ConnectionComponent/Thing/SensingComponent/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/SensingComponent/NamedIndividual/ConceptInstance
 		producedData : mixing_data
 		sameAs : humidity_sensors
 	temperature_sensors
-		type : ConnectionComponent/Thing/SensingComponent/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/SensingComponent/NamedIndividual/ConceptInstance
 		producedData : mixing_data
 		sameAs : temperature_sensors
 	weight_sensors
-		type : ConnectionComponent/Thing/SensingComponent/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/SensingComponent/NamedIndividual/ConceptInstance
 		producedData : mixing_data
 		sameAs : weight_sensors
 	motor_load_sensors
-		type : ConnectionComponent/Thing/SensingComponent/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/SensingComponent/NamedIndividual/ConceptInstance
 		producedData : mixing_data
 		sameAs : motor_load_sensors
 System :
 	material_hoppers
-		type : ActingComponent/ConnectionComponent/Thing/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/ActingComponent/NamedIndividual/ConceptInstance
 		desc : 
 		isContainedIn : concrete_mixer
 		sameAs : material_hoppers
 	conveyor_mechanism
-		type : ActingComponent/ConnectionComponent/Thing/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/ActingComponent/NamedIndividual/ConceptInstance
 		desc : 
 		isContainedIn : concrete_mixer
 		sameAs : conveyor_mechanism
 	water_dosing_system
-		type : ActingComponent/ConnectionComponent/Thing/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/ActingComponent/NamedIndividual/ConceptInstance
 		desc : 
 		isContainedIn : concrete_mixer
 		sameAs : water_dosing_system
 	cement_silo
-		type : ActingComponent/ConnectionComponent/Thing/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/ActingComponent/NamedIndividual/ConceptInstance
 		desc : 
 		isContainedIn : concrete_mixer
 		sameAs : cement_silo
 	motor
-		type : ActingComponent/ConnectionComponent/Thing/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/ActingComponent/NamedIndividual/ConceptInstance
 		desc : 
 		isContainedIn : concrete_mixer
 		sameAs : motor
 	payment_terminal
-		type : ActingComponent/ConnectionComponent/Thing/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/ActingComponent/NamedIndividual/ConceptInstance
 		desc : 
 		isContainedIn : concrete_mixer
 		sameAs : payment_terminal
 	mixer_rotor
-		type : ActingComponent/ConnectionComponent/Thing/Component/ImplementationThing/ContainedElement/TimeScaleThing/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ConnectionComponent/ImplementationThing/Thing/ContainedElement/TimeScaleThing/DescribedThing/ActingComponent/NamedIndividual/ConceptInstance
 		desc : 
 		isContainedIn : concrete_mixer
 		sameAs : mixer_rotor
 System environnement :
 	location
-		type : Thing/Component/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ImplementationThing/Thing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
 		desc : Where the concrete mixer is placed
 		isContainedIn : plant
 		sameAs : location
 	weather
-		type : Thing/Component/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Component/ImplementationThing/Thing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
 		desc : 
 		isContainedIn : plant
 		sameAs : weather
 Data :
 	pt_telemetry
-		type : Thing/DTComponent/Data/Input/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Input/Component/FidelityThing/ImplementationThing/Thing/ContainedElement/DescribedThing/Data/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : implemented
 		inputTo : next_system_update/emqx
 		fromData : mixing_data/event_data
 		sameAs : pt_telemetry
 	historical_production_logs
-		type : Thing/DTComponent/Data/Input/Component/FidelityThing/ImplementationThing/ContainedElement/DescribedThing/NamedIndividual/ConceptInstance
+		type : Input/Component/FidelityThing/ImplementationThing/Thing/ContainedElement/DescribedThing/Data/DTComponent/NamedIndividual/ConceptInstance
 		hasImplementation : implemented
 		inputTo : victoria_metrics/ml_model_updates
 		fromData : mixing_data/event_data
