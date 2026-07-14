@@ -126,7 +126,7 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 	]
 	
 	// C7: TimeScale
-	instance twinning_time_scale : DTDFVocab:TimeScale [
+	instance twinning_time_scale : DTDFVocab:TimeScaleDescription [
 		base:desc "Real-time monitoring; Faster than real-time simulation for update planning."
 	]
 	

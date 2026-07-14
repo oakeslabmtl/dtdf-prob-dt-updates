@@ -1,6 +1,7 @@
 vocabulary <https://bentleyjoakes.github.io/DTDF/vocab/DTDFVocab#> as DTDFVocab {
 	
 	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+	
 	extends<https://bentleyjoakes.github.io/DTDF/vocab/base#> as base
 	
 	aspect Component < base:DescribedThing, base:ContainedElement, ImplementationThing
@@ -105,6 +106,7 @@ vocabulary <https://bentleyjoakes.github.io/DTDF/vocab/DTDFVocab#> as DTDFVocab 
 		to TimeScale
 		forward hasTimeScale
 	]
+	concept TimeScaleDescription < base:DescribedThing
 	
 	//------------------------------
 	// C8: Multiplicity
@@ -129,12 +131,8 @@ vocabulary <https://bentleyjoakes.github.io/DTDF/vocab/DTDFVocab#> as DTDFVocab 
 	//------------------------------
 	// C10: Models/Data
 	aspect Input
-	concept Model < DTComponent, Input [
-		restricts all inputTo to Enabler
-	]
-	concept Data < DTComponent, Input [
-		restricts all inputTo to Enabler
-	]
+	concept Model < DTComponent, Input
+	concept Data < DTComponent, Input
 	
 	relation entity InputTo [
 		from Input
