@@ -29,7 +29,7 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 		DTDFVocab:hasImplementation baseDesc:planned
 	]
 	instance realtime_visualization : DTDFVocab:Service [
-		DTDFVocab:provides system_monitoring, parts_visualization, violization_localization
+		DTDFVocab:provides system_monitoring, parts_visualization, violation_localization
 		DTDFVocab:atStage baseDesc:operation
 	]
 	instance update_scheduler : DTDFVocab:Service [
@@ -105,7 +105,7 @@ description <https://bentleyjoakes.github.io/fibo/fibo_dt#> as fibo {
 		DTDFVocab:hasTimeScale baseDesc:rt
 		DTDFVocab:hasImplementation baseDesc:planned
 	]
-	instance violization_localization : DTDFVocab:Insight [
+	instance violation_localization : DTDFVocab:Insight [
 		DTDFVocab:hasTimeScale baseDesc:rt
 		DTDFVocab:hasImplementation baseDesc:planned
 	]
